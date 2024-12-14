@@ -16,3 +16,155 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+
+img {
+  object-fit: cover;
+  min-width: 481px;
+  height: 200px;
+}
+
+
+/* очікування */
+.loader {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        position: relative;
+        animation: rotate 1s linear infinite
+      }
+      .loader::before , .loader::after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        inset: 0px;
+        border-radius: 50%;
+        border: 5px solid #FFF;
+        animation: prixClipFix 2s linear infinite ;
+      }
+      .loader::after{
+        border-color: #FF3D00;
+        animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
+        inset: 6px;
+      }
+
+      @keyframes rotate {
+        0%   {transform: rotate(0deg)}
+        100%   {transform: rotate(360deg)}
+      }
+
+      @keyframes prixClipFix {
+          0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+          25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+          50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+          75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+          100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+      }
+
+/*  */
+
+
+.form-search{
+  margin-top: 20px;
+  width: 100%;
+display: flex;
+ align-items: center;
+justify-content: center; 
+gap: 8px;
+padding-bottom: 20px;
+}
+
+.btn-form {
+  border-radius: 8px;
+padding: 8px 16px;
+width: 91px;
+height: 40px;
+background-color: #4e75ff;
+ border: 1px solid transparent;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0.04em;
+color: #fff;
+}
+
+.input-form {
+ border: 1px solid #000000;
+border-radius: 4px;
+width: 272px;
+height: 35px;
+
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0.04em;
+color: #808080;
+}
+
+.btn-form:hover,
+.btn-form:focus {
+background-color: #6C8CFF;
+}
+
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; 
+}
+.gallery-item {
+
+  display: inline-block;
+width: 30%;
+
+  background-color: #fff;
+}
+
+.all-gallary img {
+
+  height: auto; 
+  display: block;
+  padding-top: 5px;
+
+}
+.description {
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+   margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.4;
+
+}
+
+
+.description p span {
+  font-weight: bold;
+  color: #555;
+}
+
+.js-load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4e75ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.js-load-more:hover {
+  background-color: #6c8cff;
+}
+
+.loader {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 18px;
+  color: #4e75ff;
+}
+
