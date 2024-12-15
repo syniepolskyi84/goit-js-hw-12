@@ -22,9 +22,7 @@ let lightbox = new SimpleLightbox(".gallery-item", {
 formSearch.addEventListener("submit", handlerSearch);
 btnLoadMore.addEventListener("click", handlerLoadMore);
 
-
 let currentHits = 0;
-
 
 async function handlerSearch(event) {
   event.preventDefault();
@@ -83,9 +81,10 @@ async function handlerSearch(event) {
   }
 }
 
-
 async function handlerLoadMore() {
   showLoader(loader);
+  hideLoadMoreButton(btnLoadMore);
+
   try {
     await addPages();
 
@@ -105,12 +104,12 @@ async function handlerLoadMore() {
     currentHits += data.hits.length;
 
     if (currentHits >= data.totalHits) {
-      hideLoadMoreButton(btnLoadMore);
       iziToast.info({
         message: "You've reached the end of search results.",
         position: "topRight",
       });
-      return;
+    } else {
+      showLoadMoreButton(btnLoadMore);
     }
 
     gallery.insertAdjacentHTML("beforeend", reflectionPictures(data.hits));
@@ -128,8 +127,10 @@ async function handlerLoadMore() {
       message: "Error fetching more images!",
       position: "topRight",
     });
-    hideLoadMoreButton(btnLoadMore);
   } finally {
     hideLoader(loader);
+    if (currentHits < data.totalHits) {
+      showLoadMoreButton(btnLoadMore);
+    }
   }
 }
