@@ -37,6 +37,7 @@ async function getPictures(query) {
     page += 1;
 }
 
- async function resetPage() {
+async function resetPage() {
     page = 1;
+   
 }
